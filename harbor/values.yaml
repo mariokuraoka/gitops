@@ -1,0 +1,26 @@
+expose:
+  type: ingress
+  ingress:
+    hosts:
+      core: harbor.example.com
+    className: nginx
+  tls:
+    enabled: true
+    certSource: secret
+
+externalURL: https://harbor.local
+harborAdminPassword: "ChangeMe123"
+
+persistence:
+  persistentVolumeClaim:
+    registry:
+      size: 50Gi
+    chartmuseum:
+      size: 10Gi
+    jobservice:
+      size: 2Gi
+    database:
+      size: 10Gi
+    redis:
+      size: 2Gi
+
